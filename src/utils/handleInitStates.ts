@@ -1,8 +1,4 @@
-import words from "./assets/words";
-
-import { CountProps } from "./components/HeaderCounters";
-
-const SECONDS_IN_MINUTE = 60;
+import words from "../assets/words";
 
 /** ref https://stackoverflow.com/a/12646864 */
 function handleShuffleList<T>(list: T[]) {
@@ -15,6 +11,11 @@ function handleShuffleList<T>(list: T[]) {
   }
 
   return newList;
+}
+
+interface CountProps {
+  correct: number;
+  completed: number;
 }
 
 interface States {
@@ -39,4 +40,5 @@ const handleInitStates = (): States => ({
   },
 });
 
-export { SECONDS_IN_MINUTE, handleInitStates, States };
+export { States };
+export default handleInitStates;

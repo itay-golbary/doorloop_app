@@ -10,11 +10,10 @@ interface Props extends GetStringifyValuesProps {
   onReset: () => void;
 }
 
-const HeaderCounters = ({ countdown, char, word, onReset }: Props) => {
+const HeaderCounters = ({ countdown, countsState, onReset }: Props) => {
   const values = getStringifyValues({
     countdown,
-    char,
-    word,
+    countsState,
   });
 
   return (
@@ -32,6 +31,7 @@ const HeaderCounters = ({ countdown, char, word, onReset }: Props) => {
 
       <div className='HeaderCounters__countdownContainer'>
         <HeaderPairText name={"Time Left"} value={countdown.toString()} />
+
         <button onClick={onReset}>Reset</button>
       </div>
     </StyledContainer>
@@ -43,14 +43,18 @@ const StyledContainer = styled.div`
   flex-direction: row;
   align-items: flex-end;
 
-  * {
-    margin-inline: 8px;
+  > div {
+    margin-inline: 16px;
   }
 
   .HeaderCounters__countdownContainer {
     height: auto;
     display: flex;
     flex-direction: row;
+
+    * {
+      margin-inline: 8px;
+    }
   }
 `;
 

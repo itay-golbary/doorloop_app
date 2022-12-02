@@ -1,4 +1,5 @@
-import { SECONDS_IN_MINUTE } from "../../utils";
+import { SECONDS_IN_MINUTE } from "../../utils/constants";
+import { States } from "../../utils/handleInitStates";
 
 const DEFAULT_VALUE = "?";
 
@@ -18,18 +19,12 @@ interface GetStringPercentageProps {
 const getStringPercentage = ({ partial, total }: GetStringPercentageProps) =>
   total ? ((partial / total) * 100).toFixed(2) + "%" : DEFAULT_VALUE;
 
-interface CountProps {
-  correct: number;
-  completed: number;
-}
-
 interface GetStringifyValuesProps {
   countdown: number;
-  char: CountProps;
-  word: CountProps;
+  countsState: States["counts"];
 }
 
-const getStringifyValues = ({ countdown, char, word }: GetStringifyValuesProps) => {
+const getStringifyValues = ({ countdown, countsState: { char, word } }: GetStringifyValuesProps) => {
   const secondsPassed = SECONDS_IN_MINUTE - countdown;
 
   return {
@@ -44,4 +39,4 @@ const getStringifyValues = ({ countdown, char, word }: GetStringifyValuesProps) 
   };
 };
 
-export { getStringifyValues, GetStringifyValuesProps, CountProps };
+export { getStringifyValues, GetStringifyValuesProps };
