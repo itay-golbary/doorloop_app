@@ -14,6 +14,9 @@ const TextInput = ({ refInput, isDisabled, onChangeInput, onKeyDown }: Props) =>
 
 const StyledInput = styled.input`
   width: 300px;
+  font-size: 24px;
+  text-align: center;
+  padding-block: 4px;
 `;
 
 export default TextInput;

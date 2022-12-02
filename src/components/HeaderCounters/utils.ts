@@ -17,7 +17,7 @@ interface GetStringPercentageProps {
 }
 
 const getStringPercentage = ({ partial, total }: GetStringPercentageProps) =>
-  total ? ((partial / total) * 100).toFixed(2) + "%" : DEFAULT_VALUE;
+  total ? ((partial / total) * 100).toFixed(0) + "%" : DEFAULT_VALUE;
 
 interface GetStringifyValuesProps {
   countdown: number;

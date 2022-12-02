@@ -1,7 +1,7 @@
 import React, { KeyboardEventHandler, useCallback, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
-import HeaderCounters from "./components/HeaderCounters";
 
+import HeaderCounters from "./components/HeaderCounters";
 import TextInput from "./components/TextInput";
 import useCountdown from "./hooks/useCountdown";
 import { SECONDS_IN_MINUTE } from "./utils/constants";
@@ -99,8 +99,9 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-block: 16px;
-    font-size: 24px;
+    margin-block-start: 48px;
+    margin-block-end: 16px;
+    font-size: 32px;
     font-weight: bold;
     letter-spacing: 1px;
   }

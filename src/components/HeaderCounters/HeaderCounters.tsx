@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 
 import HeaderGroupText from "./components/HeaderGroupText";
@@ -11,10 +11,14 @@ interface Props extends GetStringifyValuesProps {
 }
 
 const HeaderCounters = ({ countdown, countsState, onReset }: Props) => {
-  const values = getStringifyValues({
-    countdown,
-    countsState,
-  });
+  const values = useMemo(
+    () =>
+      getStringifyValues({
+        countdown,
+        countsState,
+      }),
+    [countdown, countsState],
+  );
 
   return (
     <StyledContainer>
@@ -39,6 +43,7 @@ const HeaderCounters = ({ countdown, countsState, onReset }: Props) => {
 };
 
 const StyledContainer = styled.div`
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -48,9 +53,11 @@ const StyledContainer = styled.div`
   }
 
   .HeaderCounters__countdownContainer {
+    width: 240px;
     height: auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     * {
       margin-inline: 8px;
