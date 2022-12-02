@@ -10,11 +10,11 @@ interface Props extends GetStringifyValuesProps {
   onReset: () => void;
 }
 
-const HeaderCounters = ({ countdown, chars, words, onReset }: Props) => {
+const HeaderCounters = ({ countdown, char, word, onReset }: Props) => {
   const values = getStringifyValues({
     countdown,
-    chars,
-    words,
+    char,
+    word,
   });
 
   return (

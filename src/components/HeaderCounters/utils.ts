@@ -25,21 +25,21 @@ interface CountProps {
 
 interface GetStringifyValuesProps {
   countdown: number;
-  chars: CountProps;
-  words: CountProps;
+  char: CountProps;
+  word: CountProps;
 }
 
-const getStringifyValues = ({ countdown, chars, words }: GetStringifyValuesProps) => {
+const getStringifyValues = ({ countdown, char, word }: GetStringifyValuesProps) => {
   const secondsPassed = SECONDS_IN_MINUTE - countdown;
 
   return {
     words: {
-      completedPerMinute: getStringCountPerMinute({ secondsPassed, count: words.completed }),
-      percentageCorrect: getStringPercentage({ partial: words.correct, total: words.completed }),
+      completedPerMinute: getStringCountPerMinute({ secondsPassed, count: word.completed }),
+      percentageCorrect: getStringPercentage({ partial: word.correct, total: word.completed }),
     },
     chars: {
-      completedPerMinute: getStringCountPerMinute({ secondsPassed, count: chars.completed }),
-      percentageCorrect: getStringPercentage({ partial: chars.correct, total: chars.completed }),
+      completedPerMinute: getStringCountPerMinute({ secondsPassed, count: char.completed }),
+      percentageCorrect: getStringPercentage({ partial: char.correct, total: char.completed }),
     },
   };
 };
